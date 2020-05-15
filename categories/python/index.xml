@@ -209,8 +209,8 @@ subStr&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#a6e22e">p
 &lt;p>去年在客户的一个项目上工作，跟客户那边的工程师设计的REST API打交道(后来又工作在那个上面)非常的痛苦，例如，所有操作http status都返回200，不管成功失败，然后在response body里面有个自定义的code，谁也不知道那个自定义的每个代表什么意思。URL也是很乱，完全代表不了某个resource的状态和转移，这里有一篇ruanyifeng的&lt;a href="http://www.ruanyifeng.com/blog/2018/10/restful-api-best-practices.html">文章&lt;/a>描述REST API的最佳实践，也算是基础了。&lt;/p>
 &lt;h2 id="share">Share&lt;/h2>
 &lt;p>分享一片关于工作流程和实践的思考 -&amp;gt; &lt;a href="https://mp.weixin.qq.com/s/jyURunuToRyLwOFyeMrcQA">如何在几十个 Repo 中游刃有余？&lt;/a>，我当时读完感觉启发和收获都很大，陈天的文章质量都非常高，推荐关注和订阅。&lt;/p></description></item><item><title>Data Structure</title><link>https://liangliu.me/post/data-structure/</link><pubDate>Mon, 29 Oct 2018 19:35:28 +0800</pubDate><guid>https://liangliu.me/post/data-structure/</guid><description>&lt;h2 id="数组array">数组Array&lt;/h2>
-&lt;p>数组是一种__线性表__数据结构，它用一组__连续__的内存空间，来存储一组具有__相同类型__的数据。&lt;/p>
-&lt;p>关键词：线性表，连续内存，相同类型&lt;/p>
+&lt;p>数组是一种线性表数据结构，它用一组连续的内存空间，来存储一组具有相同类型的数据。&lt;/p>
+&lt;p>关键词：&lt;strong>线性表&lt;/strong>，&lt;strong>连续内存&lt;/strong>，&lt;strong>相同类型&lt;/strong>&lt;/p>
 &lt;p>特点：&lt;/p>
 &lt;ol>
 &lt;li>
@@ -228,8 +228,8 @@ a[i]_address = base_address + i * data_type_size&lt;/p>
 一般插入删除都需要移动元素，时间复杂度O(n)&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;p>Java ArrayList&lt;/p>
-&lt;p>封装好了很多数组的操作细节，比如插入删除时候的数据搬迁，动态扩容，空间不够的时候会扩容1.5倍。在创建ArrayList的时候最好指定数组大小.&lt;/p>
+&lt;h4 id="java-arraylist">Java ArrayList&lt;/h4>
+&lt;p>ArrayList 封装好了很多数组的操作细节，比如插入删除时候的数据搬迁，动态扩容，空间不够的时候会扩容1.5倍。在创建ArrayList的时候最好指定数组大小。&lt;/p>
 &lt;ul>
 &lt;li>ArrayList无法保存java基本类型，需要装箱。&lt;/li>
 &lt;li>如果数据大小已经确定，并且操作简单，就可以直接使用数组。&lt;/li>
@@ -238,36 +238,42 @@ a[i]_address = base_address + i * data_type_size&lt;/p>
 &lt;p>业务开发用容器比如ArrayList就够了。如果做底层开发，对性能比较敏感的数组优于容器。&lt;/p>
 &lt;h2 id="链表">链表&lt;/h2>
 &lt;p>非连续内存空间的一组数据的线性集合，有单向链表，双向链表，循环链表&lt;/p>
-&lt;p>&lt;strong>单向链表&lt;/strong>&lt;/p>
-&lt;p>头节点，尾节点
-插入和删除数据只需要修改相邻节点的指针，时间复杂度O(1)
-随机访问第k个元素，需要挨个节点遍历，时间复杂度O(n)&lt;/p>
-&lt;p>&lt;strong>循环链表&lt;/strong>&lt;/p>
-&lt;p>尾节点的next指向头节点
-从尾到头比较方便，处理的数据有环形结构时候比较适合循环链表，例如&lt;a href="https://en.wikipedia.org/wiki/Josephus_problem">约瑟夫问题&lt;/a>&lt;/p>
-&lt;p>&lt;strong>双向链表&lt;/strong>&lt;/p>
-&lt;p>每个节点都有指针指向前一个节点和后一个节点，从某个节点可以轻易达到下一个节点或者上一个节点
-需要额外内存
-可以双向遍历，更灵活。
-某些情况下插入，删除要比单向链表更简单
-举例：&lt;/p>
+&lt;h4 id="单向链表">单向链表&lt;/h4>
+&lt;ul>
+&lt;li>头节点，尾节点&lt;/li>
+&lt;li>插入和删除数据只需要修改相邻节点的指针，时间复杂度O(1)&lt;/li>
+&lt;li>随机访问第k个元素，需要挨个节点遍历，时间复杂度O(n)&lt;/li>
+&lt;/ul>
+&lt;h4 id="循环链表">循环链表&lt;/h4>
+&lt;ul>
+&lt;li>尾节点的next指向头节点&lt;/li>
+&lt;li>从尾到头比较方便，处理的数据有环形结构时候比较适合循环链表，例如&lt;a href="https://en.wikipedia.org/wiki/Josephus_problem">约瑟夫问题&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="双向链表">双向链表&lt;/h4>
+&lt;ul>
+&lt;li>每个节点都有指针指向前一个节点和后一个节点，从某个节点可以轻易达到下一个节点或者上一个节点&lt;/li>
+&lt;li>需要额外内存&lt;/li>
+&lt;li>可以双向遍历，更灵活。&lt;/li>
+&lt;li>某些情况下插入，删除要比单向链表更简单&lt;/li>
+&lt;/ul>
+&lt;p>举例：&lt;/p>
 &lt;p>删除操作，一般的场景&lt;/p>
 &lt;ol>
 &lt;li>删除链表中值等于给定值的节点&lt;/li>
 &lt;li>删除给定指针指向的节点&lt;/li>
 &lt;/ol>
 &lt;p>对于第一种场景，单向链表和双向链表都要遍历找到该节点，然后删除，时间复杂度O(n)。&lt;/p>
-&lt;p>对于第二种场景，可以立即找到要删除的节点，但是在删除时候我们需要知道前一个节点和后一个节点的信息，对于单向链表，就比较为难了，要从head再遍历p-&amp;gt;next = q才能找到q的prev是p，双向链表就可以直接拿到，更高效，在O（1）复杂度就可以搞定！典型的空间换时间的例子。&lt;/p>
+&lt;p>对于第二种场景，可以立即找到要删除的节点，但是在删除时候我们需要知道前一个节点和后一个节点的信息，对于单向链表，就比较为难了，要从head再遍历 p-&amp;gt;next = q 才能找到 q 的 prev 是 p，双向链表就可以直接拿到，更高效，在O(1)复杂度就可以搞定！典型的空间换时间的例子。&lt;/p>
 &lt;p>对于插入同理。&lt;/p>
 &lt;p>对于有序的双向链表，按值查询的效率也比较高，使用二分法，记录上次查询的位置p，每次查询时候根据查得值与p位置值的大小，来决定向前还是向后查。&lt;/p>
-&lt;p>&lt;strong>数组和链表的比较&lt;/strong>&lt;/p>
+&lt;h4 id="数组和链表的比较">数组和链表的比较&lt;/h4>
 &lt;ol>
 &lt;li>在大部分情况下数组和链表在插入删除和随机访问的时间复杂度上刚好是相反的, O(1)和O(n)&lt;/li>
 &lt;li>数组在实现上是连续的内存空间，借助CPU的缓存机制，有很高效的数据访问速度。链表在内存中不是连续存储，没办法让CPU有效预读。&lt;/li>
 &lt;li>数组缺点是大小固定，申请后占用连续空间，如果申请时候size很大，系统可能没有足够连续空间分配。如果太小，又会遇到扩容时候全部copy的耗时操作。链表本身没有大小限制，随便扩充。&lt;/li>
 &lt;/ol>
 &lt;p>实际工作中根据自己的需求做合适的选择。&lt;/p>
-&lt;p>&lt;strong>用链表实现LRU缓存&lt;/strong>&lt;/p>
+&lt;h4 id="用链表实现lru缓存">用链表实现LRU缓存&lt;/h4>
 &lt;p>思路：维护一个有序的单向链表，越靠近尾部的节点是越早之前访问的。当有一个新的数据被访问时候，从head遍历链表&lt;/p>
 &lt;ol>
 &lt;li>如果此数据在链表中已有，那么把这个节点挪到链表头部。&lt;/li>
