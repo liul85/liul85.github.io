@@ -6,7 +6,7 @@ theme = "hugo-kiera"
 
 paginate = 3
 
-summaryLength = 3
+summaryLength = 1
 enableEmoji = true
 pygmentsCodeFences = true
 
