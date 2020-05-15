@@ -1,176 +1,26 @@
-<!doctype html>
+<!doctype html><html lang=en><head><title>Think,Plan,Do</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Kiera: A Hugo theme for creative and technical writing."><meta name=author content="LiangLiu"><meta property="og:title" content="Strong parameters in rails4"><meta property="og:description" content="rails learning notes"><meta property="og:type" content="article"><meta property="og:url" content="https://liangliu.me/2013/11/10/strong-parameters-in-rails4/"><meta property="article:published_time" content="2013-11-10T00:00:00+00:00"><meta property="article:modified_time" content="2013-11-10T00:00:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Strong parameters in rails4"><meta name=twitter:description content="rails learning notes"><meta name=generator content="Hugo 0.70.0"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin=anonymous><link rel=stylesheet href=https://liangliu.me/fontawesome/css/all.min.css><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda"><link rel=stylesheet type=text/css href=https://liangliu.me/css/styles.css></head><body><div id=container><header><h1><a href=https://liangliu.me/>Think,Plan,Do</a></h1><ul id=social-media><li><a href=https://github.com/liul85 title=GitHub><i class="fab fa-github fa-lg"></i></a></li><li><a href=https://twitter.com/liul85 title=Twitter><i class="fab fa-twitter fa-lg"></i></a></li></ul><p><em>Life is all about thinking</em></p></header><nav><ul></ul></nav><main><article><h1>Strong parameters in rails4</h1><aside><ul><li><time class=post-date datetime=2013-11-10T00:00:00Z>Nov 10, 2013</time></li><li>Categories:
+<em><a href=https://liangliu.me/categories/articles>articles</a></em></li><li><em><a href=https://liangliu.me/tags/rails>#rails</a></em></li><li>One minute read</li></ul></aside><p>在rails中有很多安全相关的特性保证我们的web应用足够安全，今天在学习rails时候碰到了这个，当我试图用一个create方法创建一个新话题的时候，我遇到了麻烦，我的controller如下：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>new</span>
+  @topic <span style=color:#f92672>=</span> <span style=color:#66d9ef>Topic</span><span style=color:#f92672>.</span>new
+<span style=color:#66d9ef>end</span>
 
-<html lang="en">
-
-<head>
-  <title>Think,Plan,Do</title>
-  <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Kiera: A Hugo theme for creative and technical writing." />
-<meta name="author" content="LiangLiu" /><meta property="og:title" content="Strong parameters in rails4" />
-<meta property="og:description" content="rails learning notes" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://liangliu.me/2013/11/10/strong-parameters-in-rails4/" />
-<meta property="article:published_time" content="2013-11-10T00:00:00+00:00" />
-<meta property="article:modified_time" content="2013-11-10T00:00:00+00:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Strong parameters in rails4"/>
-<meta name="twitter:description" content="rails learning notes"/>
-
-<meta name="generator" content="Hugo 0.70.0" />
-    
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://liangliu.me/fontawesome/css/all.min.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
-  <link rel="stylesheet" type="text/css" href="https://liangliu.me/css/styles.css" /></head>
-
-<body>
-  <div id="container">
-    <header>
-      <h1>
-                <a href="https://liangliu.me/">Think,Plan,Do</a>
-            </h1>
-
-      <ul id="social-media">
-             <li>
-               <a href="https://github.com/liul85" title="GitHub">
-               <i class="fab fa-github fa-lg"></i>
-               </a>
-             </li>
-             <li>
-               <a href="https://twitter.com/liul85" title="Twitter">
-               <i class="fab fa-twitter fa-lg"></i>
-               </a>
-             </li>
-      </ul>
-      
-      <p><em>Life is all about thinking</em></p>
-      
-    </header>
-
-    
-<nav>
-    <ul>
-        
-    </ul>
-</nav>
-
-
-    <main>
-
-
-
-
-<article>
-
-    <h1>Strong parameters in rails4</h1>
-
-    
-      <aside>
-    <ul>
-        <li>
-            <time class="post-date" datetime="2013-11-10T00:00:00Z">Nov 10, 2013</time>
-        </li>
-        
-        <li>
-            Categories:
-            <em>
-                
-                    
-                    <a href="https://liangliu.me/categories/articles">articles</a>
-                
-            </em>
-        </li>
-        
-
-        
-        <li>
-            <em>
-                
-                    
-                    <a href="https://liangliu.me/tags/rails">#rails</a>
-                
-            </em>
-        </li>
-        
-
-        <li>One minute read</li>
-    </ul>
-</aside>
-
-    
-
-    
-
-
-    <p>在rails中有很多安全相关的特性保证我们的web应用足够安全，今天在学习rails时候碰到了这个，当我试图用一个create方法创建一个新话题的时候，我遇到了麻烦，我的controller如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">new</span>
-  @topic <span style="color:#f92672">=</span> <span style="color:#66d9ef">Topic</span><span style="color:#f92672">.</span>new
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create</span>
-  <span style="color:#66d9ef">Topic</span><span style="color:#f92672">.</span>create(params<span style="color:#f92672">[</span><span style="color:#e6db74">:topic</span><span style="color:#f92672">]</span>)
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>create</span>
+  <span style=color:#66d9ef>Topic</span><span style=color:#f92672>.</span>create(params<span style=color:#f92672>[</span><span style=color:#e6db74>:topic</span><span style=color:#f92672>]</span>)
   redirect_to root_path
-<span style="color:#66d9ef">end</span>
-</code></pre></div><p>在用户提交新的话题后，rails会报错提示</p>
-<p><code>ActiveModel::ForbiddenAttributesError</code></p>
-<p>在查阅了railsguides后才知道，这里不能直接使用create(params[:topic])，因为如果这样写，在web应用中这样可以随便让任何参数都传进来从而导致不安全的结果。在这里我们要用的是strong_parameters，我们需要指定controller只允许接受哪几个参数</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create</span>
-  <span style="color:#66d9ef">Topic</span><span style="color:#f92672">.</span>create(params<span style="color:#f92672">[</span><span style="color:#e6db74">:topic</span><span style="color:#f92672">].</span>permit(<span style="color:#e6db74">:title</span>, <span style="color:#e6db74">:content</span>, <span style="color:#e6db74">:node_id</span>))
-<span style="color:#66d9ef">end</span>
-</code></pre></div><p>这样再刷新页面应该就ok了。不过在这个过程中我还遇到了一个问题，我当时只传入了title和content 2个参数，忘了把node_id传过去了，结果刷新页面就报错，怎么也找不到问题，后来尝试把默认传过去的参数打印出来，像这样</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create</span>
-  render <span style="color:#e6db74">text</span>: params<span style="color:#f92672">[</span><span style="color:#e6db74">:topic</span><span style="color:#f92672">].</span>inspect
-<span style="color:#66d9ef">end</span>
-</code></pre></div><p>在提交之后就能在浏览器中看到传过去的参数以及取值，再来考虑create方法中应该怎么写了。</p>
-<p>但其实上面那个还不是最好的写法，你应该这样写</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create</span>
-  <span style="color:#66d9ef">Topic</span><span style="color:#f92672">.</span>create(topic_params)
-<span style="color:#66d9ef">end</span>
+<span style=color:#66d9ef>end</span>
+</code></pre></div><p>在用户提交新的话题后，rails会报错提示</p><p><code>ActiveModel::ForbiddenAttributesError</code></p><p>在查阅了railsguides后才知道，这里不能直接使用create(params[:topic])，因为如果这样写，在web应用中这样可以随便让任何参数都传进来从而导致不安全的结果。在这里我们要用的是strong_parameters，我们需要指定controller只允许接受哪几个参数</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>create</span>
+  <span style=color:#66d9ef>Topic</span><span style=color:#f92672>.</span>create(params<span style=color:#f92672>[</span><span style=color:#e6db74>:topic</span><span style=color:#f92672>].</span>permit(<span style=color:#e6db74>:title</span>, <span style=color:#e6db74>:content</span>, <span style=color:#e6db74>:node_id</span>))
+<span style=color:#66d9ef>end</span>
+</code></pre></div><p>这样再刷新页面应该就ok了。不过在这个过程中我还遇到了一个问题，我当时只传入了title和content 2个参数，忘了把node_id传过去了，结果刷新页面就报错，怎么也找不到问题，后来尝试把默认传过去的参数打印出来，像这样</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>create</span>
+  render <span style=color:#e6db74>text</span>: params<span style=color:#f92672>[</span><span style=color:#e6db74>:topic</span><span style=color:#f92672>].</span>inspect
+<span style=color:#66d9ef>end</span>
+</code></pre></div><p>在提交之后就能在浏览器中看到传过去的参数以及取值，再来考虑create方法中应该怎么写了。</p><p>但其实上面那个还不是最好的写法，你应该这样写</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>create</span>
+  <span style=color:#66d9ef>Topic</span><span style=color:#f92672>.</span>create(topic_params)
+<span style=color:#66d9ef>end</span>
 
-<span style="color:#66d9ef">private</span>
-  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">topic_params</span>
-    params<span style="color:#f92672">.</span>require(<span style="color:#e6db74">:topic</span>)<span style="color:#f92672">.</span>permit(<span style="color:#e6db74">:title</span>, <span style="color:#e6db74">:content</span>, <span style="color:#e6db74">:node_id</span>)
-  <span style="color:#66d9ef">end</span>
-</code></pre></div><p>在这里我们定义一个私有方法<code>topic_params</code>，然后在create里调用这个方法来实现topic所带的参数的传递，这样就避免了通过修改hash传递给model来设置model属性的风险。更多的可以参考<a href="http://weblog.rubyonrails.org/2012/3/21/strong-parameters/">这里</a>。</p>
-
-
-</article>
-
-
-<section class="post-nav">
-    <ul>
-        
-        <li>
-            <a href="https://liangliu.me/2013/10/27/block-proc-lambda/"><i class="fa fa-chevron-circle-left"></i> block, proc, lambda</a>
-        </li>
-        
-        
-        <li>
-            <a href="https://liangliu.me/2014/05/26/understanding-rake-task/">understanding rake task <i class="fa fa-chevron-circle-right"></i> </a>
-        </li>
-        
-    </ul>
-</section>
-    
-    
-
-
-
-
-
-</main>
-    <footer>
-        <h6>Copyright © 2019 - Liang Liu |
-            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
-            <a href="https://liangliu.me/index.xml">Subscribe </a></h6>
-    </footer>
-</div>
-<script src="https://liangliu.me/js/scripts.js"></script>
-
-</body>
-
-</html>
-
+<span style=color:#66d9ef>private</span>
+  <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>topic_params</span>
+    params<span style=color:#f92672>.</span>require(<span style=color:#e6db74>:topic</span>)<span style=color:#f92672>.</span>permit(<span style=color:#e6db74>:title</span>, <span style=color:#e6db74>:content</span>, <span style=color:#e6db74>:node_id</span>)
+  <span style=color:#66d9ef>end</span>
+</code></pre></div><p>在这里我们定义一个私有方法<code>topic_params</code>，然后在create里调用这个方法来实现topic所带的参数的传递，这样就避免了通过修改hash传递给model来设置model属性的风险。更多的可以参考<a href=http://weblog.rubyonrails.org/2012/3/21/strong-parameters/>这里</a>。</p></article><section class=post-nav><ul><li><a href=https://liangliu.me/2013/10/27/block-proc-lambda/><i class="fa fa-chevron-circle-left"></i>block, proc, lambda</a></li><li><a href=https://liangliu.me/2014/05/26/understanding-rake-task/>understanding rake task <i class="fa fa-chevron-circle-right"></i></a></li></ul></section></main><footer><h6>Copyright © 2019 - Liang Liu |
+Rendered by <a href=https://gohugo.io title=Hugo>Hugo</a> |
+<a href=https://liangliu.me/index.xml>Subscribe</a></h6></footer></div><script src=https://liangliu.me/js/scripts.js></script></body></html>

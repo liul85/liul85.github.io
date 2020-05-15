@@ -1,139 +1,15 @@
-<!doctype html>
-
-<html lang="en">
-
-<head>
-  <title>Think,Plan,Do</title>
-  <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Kiera: A Hugo theme for creative and technical writing." />
-<meta name="author" content="LiangLiu" /><meta property="og:title" content="Docker 入门" />
-<meta property="og:description" content="什么是docker？ docker 是一个基于 linux container 的应用程序执行容器，类似于虚拟机的概念，但是比起虚拟机有轻量级的优势，" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://liangliu.me/2014/06/22/learn-docker-1/" />
-<meta property="article:published_time" content="2014-06-22T00:00:00+00:00" />
-<meta property="article:modified_time" content="2014-06-22T00:00:00+00:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Docker 入门"/>
-<meta name="twitter:description" content="什么是docker？ docker 是一个基于 linux container 的应用程序执行容器，类似于虚拟机的概念，但是比起虚拟机有轻量级的优势，"/>
-
-<meta name="generator" content="Hugo 0.70.0" />
-    
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://liangliu.me/fontawesome/css/all.min.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
-  <link rel="stylesheet" type="text/css" href="https://liangliu.me/css/styles.css" /></head>
-
-<body>
-  <div id="container">
-    <header>
-      <h1>
-                <a href="https://liangliu.me/">Think,Plan,Do</a>
-            </h1>
-
-      <ul id="social-media">
-             <li>
-               <a href="https://github.com/liul85" title="GitHub">
-               <i class="fab fa-github fa-lg"></i>
-               </a>
-             </li>
-             <li>
-               <a href="https://twitter.com/liul85" title="Twitter">
-               <i class="fab fa-twitter fa-lg"></i>
-               </a>
-             </li>
-      </ul>
-      
-      <p><em>Life is all about thinking</em></p>
-      
-    </header>
-
-    
-<nav>
-    <ul>
-        
-    </ul>
-</nav>
-
-
-    <main>
-
-
-
-
-<article>
-
-    <h1>Docker 入门</h1>
-
-    
-      <aside>
-    <ul>
-        <li>
-            <time class="post-date" datetime="2014-06-22T00:00:00Z">Jun 22, 2014</time>
-        </li>
-        
-        <li>
-            Categories:
-            <em>
-                
-                    
-                    <a href="https://liangliu.me/categories/docker">docker</a>
-                
-            </em>
-        </li>
-        
-
-        
-        <li>
-            <em>
-                
-                    
-                    <a href="https://liangliu.me/tags/docker">#docker</a>
-                
-            </em>
-        </li>
-        
-
-        <li>One minute read</li>
-    </ul>
-</aside>
-
-    
-
-    
-
-
-    <h4 id="什么是docker">什么是docker？</h4>
-<p>docker 是一个基于 linux container 的应用程序执行容器，类似于虚拟机的概念，但是比起虚拟机有轻量级的优势，</p>
-<ul>
-<li>虚拟机技术是建立于物理硬件之上的，与本机操作系统共用硬件；而docker是利用 <a href="https://linuxcontainers.org/">LXC</a> 技术构建在操作系统之上.</li>
-<li>虚拟机大家一般都会理解到操作系统镜像，运行起操作系统后一个虚拟机可以做很多事情；作为docker，非常轻量，一般一个容器只会部署少量应用，比如一个redis服务，易于管理。</li>
-<li>虚拟化技术构建操作系统时候比较复杂，而且启动慢，作为docker速度非常快。</li>
-</ul>
-<h4 id="docker-入门">docker 入门</h4>
-<p>可以参考官方<a href="http://docs.docker.com/userguide/">User Guide</a>来学习。
-我们简单介绍一下docker的安装</p>
-<h4 id="用homebrew-安装-docker">用HomeBrew 安装 docker</h4>
-<p>首先用homebrew安装cask</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew tap phinze/homebrew-cask
+<!doctype html><html lang=en><head><title>Think,Plan,Do</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Kiera: A Hugo theme for creative and technical writing."><meta name=author content="LiangLiu"><meta property="og:title" content="Docker 入门"><meta property="og:description" content="什么是docker？ docker 是一个基于 linux container 的应用程序执行容器，类似于虚拟机的概念，但是比起虚拟机有轻量级的优势，"><meta property="og:type" content="article"><meta property="og:url" content="https://liangliu.me/2014/06/22/learn-docker-1/"><meta property="article:published_time" content="2014-06-22T00:00:00+00:00"><meta property="article:modified_time" content="2014-06-22T00:00:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Docker 入门"><meta name=twitter:description content="什么是docker？ docker 是一个基于 linux container 的应用程序执行容器，类似于虚拟机的概念，但是比起虚拟机有轻量级的优势，"><meta name=generator content="Hugo 0.70.0"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin=anonymous><link rel=stylesheet href=https://liangliu.me/fontawesome/css/all.min.css><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda"><link rel=stylesheet type=text/css href=https://liangliu.me/css/styles.css></head><body><div id=container><header><h1><a href=https://liangliu.me/>Think,Plan,Do</a></h1><ul id=social-media><li><a href=https://github.com/liul85 title=GitHub><i class="fab fa-github fa-lg"></i></a></li><li><a href=https://twitter.com/liul85 title=Twitter><i class="fab fa-twitter fa-lg"></i></a></li></ul><p><em>Life is all about thinking</em></p></header><nav><ul></ul></nav><main><article><h1>Docker 入门</h1><aside><ul><li><time class=post-date datetime=2014-06-22T00:00:00Z>Jun 22, 2014</time></li><li>Categories:
+<em><a href=https://liangliu.me/categories/docker>docker</a></em></li><li><em><a href=https://liangliu.me/tags/docker>#docker</a></em></li><li>One minute read</li></ul></aside><h4 id=什么是docker>什么是docker？</h4><p>docker 是一个基于 linux container 的应用程序执行容器，类似于虚拟机的概念，但是比起虚拟机有轻量级的优势，</p><ul><li>虚拟机技术是建立于物理硬件之上的，与本机操作系统共用硬件；而docker是利用 <a href=https://linuxcontainers.org/>LXC</a> 技术构建在操作系统之上.</li><li>虚拟机大家一般都会理解到操作系统镜像，运行起操作系统后一个虚拟机可以做很多事情；作为docker，非常轻量，一般一个容器只会部署少量应用，比如一个redis服务，易于管理。</li><li>虚拟化技术构建操作系统时候比较复杂，而且启动慢，作为docker速度非常快。</li></ul><h4 id=docker-入门>docker 入门</h4><p>可以参考官方<a href=http://docs.docker.com/userguide/>User Guide</a>来学习。
+我们简单介绍一下docker的安装</p><h4 id=用homebrew-安装-docker>用HomeBrew 安装 docker</h4><p>首先用homebrew安装cask</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ brew tap phinze/homebrew-cask
 $ brew install brew-cask
-</code></pre></div><p>在OSX上运行docker还需要virtual box</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew cask install virtualbox
-</code></pre></div><p>然后我们可以安装<a href="https://github.com/boot2docker/boot2docker">boot2docker</a>, boot2docker是一个linux下轻量级的运行docker的工具，用来管理docker的守护进程。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install boot2docker
+</code></pre></div><p>在OSX上运行docker还需要virtual box</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ brew cask install virtualbox
+</code></pre></div><p>然后我们可以安装<a href=https://github.com/boot2docker/boot2docker>boot2docker</a>, boot2docker是一个linux下轻量级的运行docker的工具，用来管理docker的守护进程。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ brew install boot2docker
 $ boot2docker init
 $ boot2docker up
-$ export DOCKER_HOST<span style="color:#f92672">=</span>tcp://x.x.x.x:2375
-</code></pre></div><p>然后我们就可以安装docker了</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">brew install docker
-</code></pre></div><p>Done!</p>
-<h4 id="docker-简单应用">docker 简单应用</h4>
-<p>docker装好了，我们来做一些简单的事情吧。</p>
-<p>不免俗套来个Hello World</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ docker run ubuntu /bin/echo <span style="color:#e6db74">&#39;Hello World&#39;</span>
-Unable to find image <span style="color:#e6db74">&#39;ubuntu&#39;</span> locally
+$ export DOCKER_HOST<span style=color:#f92672>=</span>tcp://x.x.x.x:2375
+</code></pre></div><p>然后我们就可以安装docker了</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>brew install docker
+</code></pre></div><p>Done!</p><h4 id=docker-简单应用>docker 简单应用</h4><p>docker装好了，我们来做一些简单的事情吧。</p><p>不免俗套来个Hello World</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ docker run ubuntu /bin/echo <span style=color:#e6db74>&#39;Hello World&#39;</span>
+Unable to find image <span style=color:#e6db74>&#39;ubuntu&#39;</span> locally
 Pulling repository ubuntu
 e54ca5efa2e9: Download complete
 511136ea3c5a: Download complete
@@ -142,69 +18,7 @@ d7ac5e4f1812: Download complete
 83ff768040a0: Download complete
 6c37f792ddac: Download complete
 Hello World
-</code></pre></div><p><code>docker run</code> 命令是运行一个docker容器，我们指定image是ubunt，然后docker会在本地寻找，如果本地没有，docker会去<a href="https://hub.docker.com/">Docker Hub</a>上找，然后下载到本地，ubuntu这个容器起来后就会运行 <code>/bin/echo 'Hello World‘</code> 命令。</p>
-<h3 id="docker常用命令">docker常用命令</h3>
-<ul>
-<li>
-<p><code>docker ps</code> 查看当前运行的docker容器</p>
-</li>
-<li>
-<p><code>docker logs</code> 查看一个容器的输出log，后面可以带上容器ID。</p>
-</li>
-<li>
-<p><code>docker stop</code> 停止一个运行中的容器</p>
-</li>
-<li>
-<p><code>docker images</code> 查看当前已有的image</p>
-</li>
-</ul>
-<p>docker run 的一些常用参数</p>
-<ul>
-<li><code>-t</code> 分配虚拟TTY终端</li>
-<li><code>-i</code> 保持std输出</li>
-<li><code>-v</code> 将本地目录mount到container中</li>
-<li><code>-w</code> 指定container run起来之后的默认工作目录</li>
-<li><code>--rm</code> run完后container自动删除</li>
-<li><code>-e</code> 指定container的环境变量</li>
-</ul>
-<p>下面这个命令run一个java8的container将本地的~/.gradle和~/src mount到指定目录，设置环境变量JAVA_TOOL_OPTIONS并执行gradlew run命令, run完之后自己删除container.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker run -it -v ~/.gradle:/root/gradle -v ~/src:/root/source -w /root/source --rm -e JAVA_TOOL_OPTIONS<span style="color:#f92672">=</span>-Dfile.encoding<span style="color:#f92672">=</span>UTF8 java:openjdk-8 ./gradlew run
-</code></pre></div>
-
-</article>
-
-
-<section class="post-nav">
-    <ul>
-        
-        <li>
-            <a href="https://liangliu.me/2014/05/26/understanding-rake-task/"><i class="fa fa-chevron-circle-left"></i> understanding rake task</a>
-        </li>
-        
-        
-        <li>
-            <a href="https://liangliu.me/2014/11/20/use-fig-manage-docker/">用fig管理docker <i class="fa fa-chevron-circle-right"></i> </a>
-        </li>
-        
-    </ul>
-</section>
-    
-    
-
-
-
-
-
-</main>
-    <footer>
-        <h6>Copyright © 2019 - Liang Liu |
-            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
-            <a href="https://liangliu.me/index.xml">Subscribe </a></h6>
-    </footer>
-</div>
-<script src="https://liangliu.me/js/scripts.js"></script>
-
-</body>
-
-</html>
-
+</code></pre></div><p><code>docker run</code> 命令是运行一个docker容器，我们指定image是ubunt，然后docker会在本地寻找，如果本地没有，docker会去<a href=https://hub.docker.com/>Docker Hub</a>上找，然后下载到本地，ubuntu这个容器起来后就会运行 <code>/bin/echo 'Hello World‘</code> 命令。</p><h3 id=docker常用命令>docker常用命令</h3><ul><li><p><code>docker ps</code> 查看当前运行的docker容器</p></li><li><p><code>docker logs</code> 查看一个容器的输出log，后面可以带上容器ID。</p></li><li><p><code>docker stop</code> 停止一个运行中的容器</p></li><li><p><code>docker images</code> 查看当前已有的image</p></li></ul><p>docker run 的一些常用参数</p><ul><li><code>-t</code> 分配虚拟TTY终端</li><li><code>-i</code> 保持std输出</li><li><code>-v</code> 将本地目录mount到container中</li><li><code>-w</code> 指定container run起来之后的默认工作目录</li><li><code>--rm</code> run完后container自动删除</li><li><code>-e</code> 指定container的环境变量</li></ul><p>下面这个命令run一个java8的container将本地的~/.gradle和~/src mount到指定目录，设置环境变量JAVA_TOOL_OPTIONS并执行gradlew run命令, run完之后自己删除container.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>docker run -it -v ~/.gradle:/root/gradle -v ~/src:/root/source -w /root/source --rm -e JAVA_TOOL_OPTIONS<span style=color:#f92672>=</span>-Dfile.encoding<span style=color:#f92672>=</span>UTF8 java:openjdk-8 ./gradlew run
+</code></pre></div></article><section class=post-nav><ul><li><a href=https://liangliu.me/2014/05/26/understanding-rake-task/><i class="fa fa-chevron-circle-left"></i>understanding rake task</a></li><li><a href=https://liangliu.me/2014/11/20/use-fig-manage-docker/>用fig管理docker <i class="fa fa-chevron-circle-right"></i></a></li></ul></section></main><footer><h6>Copyright © 2019 - Liang Liu |
+Rendered by <a href=https://gohugo.io title=Hugo>Hugo</a> |
+<a href=https://liangliu.me/index.xml>Subscribe</a></h6></footer></div><script src=https://liangliu.me/js/scripts.js></script></body></html>
