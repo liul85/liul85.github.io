@@ -1,0 +1,213 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <title>Think,Plan,Do</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Kiera: A Hugo theme for creative and technical writing." />
+<meta name="author" content="LiangLiu" /><meta property="og:title" content="ARTS 28 Oct" />
+<meta property="og:description" content="Algorithm bubble sorting 冒泡排序" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liangliu.me/post/arts-28-oct/" />
+<meta property="article:published_time" content="2018-10-28T17:22:36+08:00" />
+<meta property="article:modified_time" content="2018-10-28T17:22:36+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ARTS 28 Oct"/>
+<meta name="twitter:description" content="Algorithm bubble sorting 冒泡排序"/>
+
+<meta name="generator" content="Hugo 0.70.0" />
+    
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://liangliu.me/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="https://liangliu.me/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="https://liangliu.me/">Think,Plan,Do</a>
+            </h1>
+
+      <ul id="social-media">
+             <li>
+               <a href="https://github.com/liul85" title="GitHub">
+               <i class="fab fa-github fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://twitter.com/liul85" title="Twitter">
+               <i class="fab fa-twitter fa-lg"></i>
+               </a>
+             </li>
+      </ul>
+      
+      <p><em>Life is all about thinking</em></p>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>ARTS 28 Oct</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2018-10-28T17:22:36&#43;08:00">Oct 28, 2018</time>
+        </li>
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="https://liangliu.me/tags/arts">#ARTS</a>
+                
+            </em>
+        </li>
+        
+
+        <li>2 minutes read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <h2 id="algorithm">Algorithm</h2>
+<p>bubble sorting 冒泡排序</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> sort<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AbstractSort</span><span style="color:#f92672">&lt;</span>T <span style="color:#66d9ef">extends</span> Comparable<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;&gt;</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sort</span><span style="color:#f92672">(</span>T<span style="color:#f92672">[]</span> collection<span style="color:#f92672">);</span>
+
+    <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">lessThan</span><span style="color:#f92672">(</span>T first<span style="color:#f92672">,</span> T second<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> first<span style="color:#f92672">.</span><span style="color:#a6e22e">compareTo</span><span style="color:#f92672">(</span>second<span style="color:#f92672">)</span> <span style="color:#f92672">&lt;</span> 0<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">swap</span><span style="color:#f92672">(</span>T<span style="color:#f92672">[]</span> collection<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> i<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> j<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        T temp <span style="color:#f92672">=</span> collection<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+        collection<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> collection<span style="color:#f92672">[</span>j<span style="color:#f92672">];</span>
+        collection<span style="color:#f92672">[</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> temp<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BubbleSort</span><span style="color:#f92672">&lt;</span>T <span style="color:#66d9ef">extends</span> Comparable<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;&gt;</span> <span style="color:#66d9ef">extends</span> AbstractSort <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sort</span><span style="color:#f92672">(</span>T<span style="color:#f92672">[]</span> collection<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">int</span> length <span style="color:#f92672">=</span> collection<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span>
+
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> length <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span> i <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">;</span> i<span style="color:#f92672">--)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> j <span style="color:#f92672">&lt;</span> i<span style="color:#f92672">;</span> j<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>lessThan<span style="color:#f92672">(</span>collection<span style="color:#f92672">[</span>j <span style="color:#f92672">+</span> 1<span style="color:#f92672">],</span> collection<span style="color:#f92672">[</span>j<span style="color:#f92672">]))</span> <span style="color:#f92672">{</span>
+                    swap<span style="color:#f92672">(</span>collection<span style="color:#f92672">,</span> j<span style="color:#f92672">,</span> j <span style="color:#f92672">+</span> 1<span style="color:#f92672">);</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+another implementation
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BubbleSort</span><span style="color:#f92672">&lt;</span>T <span style="color:#66d9ef">extends</span> Comparable<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;&gt;</span> <span style="color:#66d9ef">extends</span> AbstractSort <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sort</span><span style="color:#f92672">(</span>T<span style="color:#f92672">[]</span> collection<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">boolean</span> swapped <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>swapped<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            swapped <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> collection<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>lessThan<span style="color:#f92672">(</span>collection<span style="color:#f92672">[</span>i <span style="color:#f92672">+</span> 1<span style="color:#f92672">],</span> collection<span style="color:#f92672">[</span>i<span style="color:#f92672">]))</span> <span style="color:#f92672">{</span>
+                    swap<span style="color:#f92672">(</span>collection<span style="color:#f92672">,</span> i <span style="color:#f92672">+</span> 1<span style="color:#f92672">,</span> i<span style="color:#f92672">);</span>
+                    swapped <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>best case time complexity - O(n^2)</p>
+<p>worse case time complexity - O(n^2)</p>
+<h2 id="review">Review</h2>
+<p><a href="https://honest.engineering/posts/why-use-graphql-good-and-bad-reasons">why use GraphQL</a></p>
+<p>作者分析了选用GraphQL合理的原因和不make sense的原因，告诉大家在选择它时候要冷静分析，自己面对的问题是什么，用GraphQL是否一定会解决问题，不要因为GraphQL很火，追求技术潮流而去用它，要从自己实际项目需求出发。其中对与GraphQL和Rest的阐述可以好好看看，很多人都会有类似的问题和概念混淆。</p>
+<h2 id="technicaltips">Technical/Tips</h2>
+<p>图解HTTPS对话过程</p>
+<p><a href="https://tls.ulfheim.net/">The Illustrated TLS Connection</a></p>
+<h2 id="share">Share</h2>
+<p>学习一个技术的方法，帮助系统化理解和掌握.
+the way to understand and master a new technology sysmatically.</p>
+<blockquote>
+<ol>
+<li>这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题。<br>
+what&rsquo;s the background when this tech came out, what kind of problem it gonna to solve.</li>
+<li>这个技术的优势和劣势是什么。<br>
+what&rsquo;s the pros and cons.</li>
+<li>这个技术适用的场景。<br>
+the scenarios this technology works.</li>
+<li>这个技术的组成部分和关键点。<br>
+the key components.</li>
+<li>这个技术的底层原理和关键实现。<br>
+the low lever principle and implementations.</li>
+<li>已有的实现和它之间的对比。<br>
+comparasion between this new technology and existing teches.</li>
+</ol>
+</blockquote>
+<p>出自 极客时间-左耳听风-高效学习：深度，归纳和坚持实践 <a href="https://time.geekbang.org/column/article/14360">原文</a></p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="https://liangliu.me/2017/06/01/automatic-scaling-with-aws-ecs/"><i class="fa fa-chevron-circle-left"></i> 使用AWS ECS部署应用并自动扩展</a>
+        </li>
+        
+        
+        <li>
+            <a href="https://liangliu.me/post/data-structure/">Data Structure <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+    
+    
+
+
+
+
+
+</main>
+    <footer>
+        <h6>Copyright © 2019 - Liang Liu |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="https://liangliu.me/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="https://liangliu.me/js/scripts.js"></script>
+
+</body>
+
+</html>
+
