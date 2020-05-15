@@ -1,0 +1,170 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <title>Think,Plan,Do</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Kiera: A Hugo theme for creative and technical writing." />
+<meta name="author" content="LiangLiu" /><meta property="og:title" content="使用pygments在博客中让代码高亮" />
+<meta property="og:description" content="some pygments skills" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liangliu.me/2013/08/04/highlighting-code-in-jekyll-with-pygments/" />
+<meta property="article:published_time" content="2013-08-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2013-08-04T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用pygments在博客中让代码高亮"/>
+<meta name="twitter:description" content="some pygments skills"/>
+
+<meta name="generator" content="Hugo 0.70.0" />
+    
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://liangliu.me/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="https://liangliu.me/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="https://liangliu.me/">Think,Plan,Do</a>
+            </h1>
+
+      <ul id="social-media">
+             <li>
+               <a href="https://github.com/liul85" title="GitHub">
+               <i class="fab fa-github fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://twitter.com/liul85" title="Twitter">
+               <i class="fab fa-twitter fa-lg"></i>
+               </a>
+             </li>
+      </ul>
+      
+      <p><em>Life is all about thinking</em></p>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>使用pygments在博客中让代码高亮</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2013-08-04T00:00:00Z">Aug 4, 2013</time>
+        </li>
+        
+        <li>
+            Categories:
+            <em>
+                
+                    
+                    <a href="https://liangliu.me/categories/articles">articles</a>
+                
+            </em>
+        </li>
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="https://liangliu.me/tags/jekyll">#jekyll</a>
+                
+                    , 
+                    <a href="https://liangliu.me/tags/pygments">#pygments</a>
+                
+            </em>
+        </li>
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <p>在天津出差无聊期间又折腾了一下博客，换掉了以前的octopress，用jekyll搭建了轻量的静态博客，最近来杜塞，闲暇时间又在看ruby，中间会写一些笔记，发现在blog中代码没有高亮，于是研究了下jekyll的官方<a href="http://jekyllrb.com/docs/templates/">documentation</a>，做了一下代码高亮。</p>
+<h3 id="在本地安装pygments">在本地安装pygments</h3>
+<p>由于mac上默认已经安装了python，我们只需要去<a href="https://pypi.python.org/pypi/Pygments">python</a>网站上下载Pygments-1.6.tar.gz.
+下载解压后在本地安装</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#960050;background-color:#1e0010">$</span> sudo python setup<span style="color:#f92672">.</span>py install
+</code></pre></div><h3 id="查看pygments中的代码高亮样式">查看pygments中的代码高亮样式</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">from</span> pygments.styles <span style="color:#f92672">import</span> STYLE_MAP
+<span style="color:#f92672">&gt;&gt;&gt;</span> STYLE_MAP<span style="color:#f92672">.</span>keys()
+[<span style="color:#e6db74">&#39;monokai&#39;</span>, <span style="color:#e6db74">&#39;manni&#39;</span>, <span style="color:#e6db74">&#39;rrt&#39;</span>, <span style="color:#e6db74">&#39;perldoc&#39;</span>, <span style="color:#e6db74">&#39;borland&#39;</span>, <span style="color:#e6db74">&#39;colorful&#39;</span>, <span style="color:#e6db74">&#39;default&#39;</span>, <span style="color:#e6db74">&#39;murphy&#39;</span>, <span style="color:#e6db74">&#39;vs&#39;</span>, <span style="color:#e6db74">&#39;trac&#39;</span>, <span style="color:#e6db74">&#39;tango&#39;</span>, <span style="color:#e6db74">&#39;fruity&#39;</span>, <span style="color:#e6db74">&#39;autumn&#39;</span>, <span style="color:#e6db74">&#39;bw&#39;</span>, <span style="color:#e6db74">&#39;emacs&#39;</span>, <span style="color:#e6db74">&#39;vim&#39;</span>, <span style="color:#e6db74">&#39;pastie&#39;</span>, <span style="color:#e6db74">&#39;friendly&#39;</span>, <span style="color:#e6db74">&#39;native&#39;</span>]
+</code></pre></div><h3 id="将选择的样式转成css到blog目录中">将选择的样式转成css到blog目录中</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Blog/xxxx.github.com/
+$ pygmentize -S colorful -f html &gt; assets/themes/twitter/css/pygments.css
+</code></pre></div><p>其中-S 后面参数是你选择的样式,可以去css目录下查看生成了pygments.css</p>
+<h3 id="在blog的layout中引用刚才生成的css">在blog的layout中引用刚才生成的css</h3>
+<p>由于我使用了bootstrap的twitter主题，我的目录是在_includes/themes/twitter/下，打开default.html文件，添加css</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ ASSET_PATH }}/css/pygments.css&#34;</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span>&gt;
+</code></pre></div><p>这样就基本ok了，可以在本地看下代码高亮效果。</p>
+<p>对了，在Markdown中高亮后面带上linenos，就可以显示行号，参考jekyll的<a href="http://jekyllrb.com/docs/templates/">文档</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">foo</span>
+    puts <span style="color:#e6db74">&#39;foo&#39;</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div>
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="https://liangliu.me/2013/08/03/ruby/"><i class="fa fa-chevron-circle-left"></i> Ruby中的类变量</a>
+        </li>
+        
+        
+        <li>
+            <a href="https://liangliu.me/2013/08/12/koln-boen-knigswinter/">happy Koln--&gt;Boen--&gt;königswinter <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+    
+    
+
+
+
+
+
+</main>
+    <footer>
+        <h6>Copyright © 2019 - Liang Liu |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="https://liangliu.me/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="https://liangliu.me/js/scripts.js"></script>
+
+</body>
+
+</html>
+
