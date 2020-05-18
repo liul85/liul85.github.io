@@ -9,6 +9,7 @@ paginate = 3
 summaryLength = 1
 enableEmoji = true
 pygmentsCodeFences = true
+googleAnalytics = "UA-166874069-1"
 
 #disqusShortname = "myShortName"
 
