@@ -1,14 +1,14 @@
-baseURL = "https://liangliu.me"
+baseURL = "https://example.com"
 languageCode = "en"
 defaultContentLanguage = "en"
-title = "Liang's blog"
+title = "KeepIt"
 theme = "KeepIt"
 
 paginate = 12
 enableEmoji = true
 enableRobotsTXT = true
-googleAnalytics = "UA-166874069-1"
-disqusShortname = "liul85"
+googleAnalytics = ""
+disqusShortname = "yourdiscussshortname"
 
 [sitemap]
   changefreq = "monthly"
@@ -40,9 +40,9 @@ disqusShortname = "liul85"
     weight = 4
 
 [params]
-    since = 2013
-    author = "Liang"               # Author's name
-    subtitle = "Keep learning"       # Subtitle
+    since = 2012
+    author = "Fastbyte01"               # Author's name
+    subtitle = "A Hugo theme"       # Subtitle
     cdn_url = ""           # Base CDN URL
     home_mode = "" # post or other
 
@@ -65,12 +65,12 @@ disqusShortname = "liul85"
 
 
 [params.social]
-    GitHub = "liul85"
-    #Linkedin = ""
-    Twitter = "liul85"
+    GitHub = "xxxx"
+    Linkedin = "xxxx"
+    Twitter = "xxxx"
     #Instagram = "xxxx"
-    Email   = "liul85@gmail.com"
-    #Facebook = "xxxx"
+    #Email   = "xxxx"
+    Facebook = "xxxx"
     #Telegram = "xxxx"
     #Medium = "xxxx"
     #Gitlab = "xxxx"
@@ -124,10 +124,10 @@ disqusShortname = "liul85"
     #Thingiverse = "xxxx"
 
 [params.share]
-#Twitter = true
-#Facebook = true
+Twitter = true
+Facebook = true
 #Reddit = true
-#Linkedin = true
+Linkedin = true
 #Pinterest = true
 #HackerNews = true
 #Mix = true
