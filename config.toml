@@ -1,4 +1,4 @@
-baseurl = "https://liangliu.me"
+baseurl = "https://liangliu.me/"
 languageCode = "en-us"
 title = "Liang Liu's blog"
 theme = "hugo-lithium-theme"
