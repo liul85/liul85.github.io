@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>rake on Liang's blog</title><link>https://liangliu.me/tags/rake/</link><description>Recent content in rake on Liang's blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 26 May 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://liangliu.me/tags/rake/index.xml" rel="self" type="application/rss+xml"/><item><title>understanding rake task</title><link>https://liangliu.me/2014/05/26/understanding-rake-task/</link><pubDate>Mon, 26 May 2014 00:00:00 +0000</pubDate><guid>https://liangliu.me/2014/05/26/understanding-rake-task/</guid><description>在新项目中接触ruby的Rake任务很多，自己还是不太了解Rake，闲了找了一些资料学习一下，做一些笔记。 其实Rake就是ruby中的make，一个用ruby开发的构建工具。Rake真的是一个功能强大，又很贴心的工具，正如它的英文意思耙子&amp;ndash;给力的劳动工具。
-Rake的优点 通过Rake我们可以以任务的方式创建和运行脚本。对于大型的应用项目，我们总是会编写很多脚本用来实现自动化，比如数据迁移，清空缓存，清理数据库等。Rake就是一个非常好的任务脚本管理工具，会让你的任务脚本管理非常轻松。
-同时Rake还轻松提供了任务执行之间的依赖关系管理，加入任务1依赖于任务2，那么在执行任务1的时候任务2会自动被调用执行，非常方便。
-安装Rake 非常简单, gem 安装搞定！
-$ gem install rake 学写Rake脚本 简单rake任务 创建一个Rakefile，写一个简单的rake任务，从hello world开始吧。
-desc &amp;#34;say hello&amp;#34; task :hello do puts &amp;#34;hello, world!&amp;#34; end 然后在文件目录下执行 rake -T 就能看到这个任务, rake hello就可以执行rake任务了。
-➜ rake -T rake hello # say hello ➜ rake hello hello world! 指定默认任务 在Rakefile中加入默认任务, 然后执行rake不指定任务名，就执行默认任务。
-task :default =&amp;gt; :hello ➜ rake hello world! 创建具有依赖关系的任务 一般我们在执行一些脚本时候，会有一些预制条件，比如跑测试时候，需要提前在数据库中插入一些测试数据。在rake中，可以把预制条件写为一个任务，其他任务依赖于这个时候，可以把它加到依赖关系中</description></item></channel></rss>
