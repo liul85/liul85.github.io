@@ -269,6 +269,7 @@ img {
 
   .nav-logo img {
     max-height: 50px;
+    border-radius: 30px;
   }
 
   .nav-links {
