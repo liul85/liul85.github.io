@@ -3,7 +3,6 @@ languageCode = "en-us"
 title = "Liang Liu's blog"
 theme = "hugo-lithium-theme"
 googleAnalytics = "UA-166874069-1"
-disqusShortname = "liul85"
 disableKinds = ["taxonomy", "taxonomyTerm", "section", "404"]
 
 [permalinks]
@@ -37,3 +36,5 @@ disableKinds = ["taxonomy", "taxonomyTerm", "section", "404"]
     [params.icon]
     url = "favicon.ico"
 
+    [params.comment]
+    repo = "liul85/blog-comments"
